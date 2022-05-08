@@ -1,0 +1,7 @@
+node_modules
+cypress/integration/1-*
+cypress/integration/2-*
+cypress/screenshots
+cypress/plugins
+cypress/support
+cypress/fixtures
