@@ -6,15 +6,19 @@ describe('My First Test', () => {
 
 describe('My First Test', () => {
   it('Visits the Kitchen Sink', () => {
-    cy.visit('https://example.cypress.io');
 
-    cy.contains('type').click();
+    cy.viewport("iphone-6");
 
-    cy.url().should('include', '/commands/actions');
+    cy.visit('https://donation.yahoo.co.jp/');
 
-    cy.get('.action-email')
-      .type('fake@email.com')
-      .should('have.value', 'fake@email.com')
+    cy.get('#search > form > div > input').type('領収書');
+
+    cy.get('#search > form > div > button').click();
+
+    cy.url().should('include', '/search');
+
+    cy.get('#result > h1')
+      .should('have.text', '検索結果')
 
     cy.screenshot('test', {capture:'fullPage'});
   })
