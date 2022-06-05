@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "$(npm bin)/cypress open"
+    "cypress:open": "$(npm bin)/cypress open",
+    "cy:run:chrome": "$(npm bin)/cypress run -s cypress/integration/sample_spec.js --browser chrome",
+    "cy:run:firefox": "$(npm bin)/cypress run -s cypress/integration/sample_spec.js --browser firefox"
   },
   "repository": {
     "type": "git",
