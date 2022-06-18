@@ -5,3 +5,5 @@ cypress/screenshots
 cypress/plugins
 cypress/support
 cypress/fixtures
+cypress/videos
+.env
