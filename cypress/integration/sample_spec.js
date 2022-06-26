@@ -21,9 +21,18 @@ describe('Tポイントのテスト', () => {
     cy.url().should('eq', 'https://donation.yahoo.co.jp/detail/1630001/point');
   })
 
-  it('ログイン画面が表示されログインができるか', () => {
-    const beforePoint = cy.get('#tabbox > section > h2 > span.number');
-    cy.log(beforePoint.invoke('text'));
+  it('Tポイントの通常決済のシンプルなシナリオテスト', () => {
+    const beforePointData = cy.get('#tabbox > section > h2 > span.number');
+    const beforePoint = cy.log(beforePointData.invoke('text'));
     //beforePoint.should('have.text', '0');
+    cy.get('#decision-money > li.inputarea > input').type(1);
+    cy.get('#tpoint-checked').click();
+    cy.get('#tabbox > section > form > ul:nth-child(4) > li.tabbox_btn_submit > input').click();
+
+    cy.url().should('eq', 'https://donation.yahoo.co.jp/detail/1630001/pointConfirm/');
+    cy.get('#main > section > p').should('have.text', '1');
+    cy.get('#main > ul > form:nth-child(1) > li > input.btn.__submit.__on').click();
+
+    cy.url().should('eq', 'https://donation.yahoo.co.jp/detail/1630001/thanks');
   })
 })
