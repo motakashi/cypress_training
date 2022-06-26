@@ -8,5 +8,6 @@ module.exports = defineConfig({
   env: {
     YID: process.env.YID,
     PASSWORD: process.env.PASSWORD
-  }
+  },
+  experimentalSessionAndOrigin: true
 })
